@@ -10,7 +10,7 @@ Bonjour et bienvenue dans le dépôt du projet La Buvette de Bel'Air !
 
 Ce projet est votre terrain de jeu pour créer un système backend robuste pour gérer les boissons et les snacks !
 
-Vous allez construire le backend le plus fantastique en utilisant Java, la stack de votre choix.
+Vous allez construire le backend le plus extraordinaire en utilisant Java.
 
 Mais surtout, votre nouveau meilleur ami : GitHub Copilot, votre nouveau canard en caoutchouc / copain-stagiaire survitaminé de pair programming !
 

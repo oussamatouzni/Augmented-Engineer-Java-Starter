@@ -10,7 +10,7 @@ Versión original: [README.md](README.md)
 
 Este proyecto es tu campo de pruebas para crear un sistema backend robusto para gestionar las bebidas y los snacks.
 
-Vas a construir el backend más fantástico usando Java, la pila que prefieras.
+Vas a construir el backend más fantástico usando Java.
 
 Pero, lo más importante, tu nuevo mejor amigo: GitHub Copilot, tu nuevo patito de goma / becario sobreentusiasta para programar en pareja.
 

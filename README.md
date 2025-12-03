@@ -11,7 +11,7 @@ Hello there and welcome to the Bel'Air's Buvette project repository !
 
 This project is your playground to create a robust backend system for managing the drinks and snacks ! 
 
-You will build the most fantastic backend using Java, the stack of your choice.
+You will build the most fantastic backend using Java.
 
 But more importantly, your new best friend : Github Copilot, your new rubber ducky / overenthusiastic intern pair programmer buddy ! 
 
