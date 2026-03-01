@@ -7,68 +7,67 @@ Version española : [README_es.md](README_es.md)
 > 
 > This project is part of the eXalt IT augmented engineer learning path, located in its [academy](https://example.com).
 
-Hello there and welcome to the Bel'Air's Buvette project repository ! 
+Hello there and welcome to the Bel'Air's Buvette project repository!
 
-This project is your playground to create a robust backend system for managing the drinks and snacks ! 
+This project is your playground to create a robust backend system for managing the drinks and snacks!
 
 You will build the most fantastic backend using Java.
 
-But more importantly, your new best friend : Github Copilot, your new rubber ducky / overenthusiastic intern pair programmer buddy ! 
+But more importantly, your new best friend: Github Copilot, your new rubber ducky / overenthusiastic intern pair programmer buddy!
 
+## Project Structure
+
+```
+belairs-buvette/
+ domain/           # Business logic and domain model
+ application/      # Use cases and application services
+ infrastructure/   # Adapters, persistence, external integrations
+```
+
+## Installing the Toolchain
+
+| Tool | Version | Documentation |
+|------|---------|---------------|
+| Java | 21+ | [adoptium.net](https://adoptium.net/) |
+| Git | latest | [git-scm.com](https://git-scm.com/downloads) |
+
+> The Gradle wrapper (`gradlew` / `gradlew.bat`) is included — no need to install Gradle separately.
 
 ## Getting Started
 
-First thing first, fork this repository to your own Gitlab account : 
+### Prerequisites
 
-![fork](./assets/fork.png)
+- Java 21+
+- Git
 
->[!warning]
-> 
-> Only fork the main branch !
+### Fork & Clone
 
-Then clone it to your local machine using IntelliJ (or your terminal if you want to feel like a hacker) :
-
-### IntelliJ
-
-Get the URL of your forked repository from Gitlab :
-
-![clone](assets/clone.png)
-
-Then in IntelliJ, go to `New`, `Project from version control`, click and paste the URL you just copied into the from.
-
-![new_project.png](assets/new_project.png)
-
-### Terminal
+Fork this repository to your own Gitlab account (main branch only), then clone it:
 
 ```bash
-git clone <YOUR_FORK git url>
+git clone <YOUR_FORK_URL>
 cd belairs-buvette
 ```
-Then open the folder in Intellij (`New` -> `Project from existing sources`).
+
+Then open the folder in IntelliJ (`New` → `Project from existing sources`) or any IDE of your choice.
 
 ### Mirror to GitHub
 
-To be able to properly use the more advanced AI features using Copilot, mirror this repository to your GitHub account as well.
-
-First create a new empty repository on GitHub called `belairs-buvette`.
-
-Then add the GitHub remote to your local git configuration :
+To properly use advanced AI features with Copilot, mirror this repository to your GitHub account:
 
 ```bash
-git remote add github  <the URL of your new GitHub repository>
+git remote add github <the URL of your new GitHub repository>
 git branch -M main
 git push -u github main
 ```
 
-You are all set ! 
-
-To build the project, you can use the Gradle wrapper included in the project.
+### Build
 
 ```bash
 ./gradlew build
 ```
 
-To test the project, you can use the following command :
+### Run the tests
 
 ```bash
 ./gradlew test
@@ -76,10 +75,8 @@ To test the project, you can use the following command :
 
 ## Next Steps
 
-Now that you have your development environment set up, it's time to dive into the project.
+Start by following the formation material in the [academy](https://example.com).
 
-Start by following the rest of the formation material provided in the [academy](https://example.com).
+Read [FEATURES.md](./FEATURES.md) for the list of user stories and acceptance criteria.
 
-You can also look into the [FEATURES.md](./FEATURES.md) file to get an idea of the features you will be implementing.
-
-Happy coding !
+Happy coding!

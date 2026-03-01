@@ -15,61 +15,59 @@ Vous allez construire le meilleur backend possible en utilisant Java.
 
 Mais plus important encore, votre nouveau meilleur ami : GitHub Copilot, votre canard en caoutchouc / stagiaire trop enthousiaste pour le pair programming !
 
+## Structure du projet
+
+```
+belairs-buvette/
+ domain/           # Logique métier et modèle de domaine
+ application/      # Cas d'usage et services applicatifs
+ infrastructure/   # Adaptateurs, persistance, intégrations externes
+```
+
+## Installation de la chaîne d'outils
+
+| Outil | Version | Documentation |
+|-------|---------|---------------|
+| Java | 21+ | [adoptium.net](https://adoptium.net/) |
+| Git | latest | [git-scm.com](https://git-scm.com/downloads) |
+
+> Le wrapper Gradle (`gradlew` / `gradlew.bat`) est inclus — pas besoin d'installer Gradle séparément.
 
 ## Démarrage
 
-D'abord, forkez ce dépôt sur votre propre compte Gitlab : 
+### Prérequis
 
-![fork](./assets/fork.png)
+- Java 21+
+- Git
 
->[!warning]
-> 
-> Ne forkez que la branche `main` !
+### Fork & Clone
 
-Puis clonez-le sur votre machine locale en utilisant IntelliJ (ou votre terminal si vous voulez vous sentir hacker) :
-
-### IntelliJ
-
-Récupérez l'URL de votre fork sur Gitlab :
-
-![clone](assets/clone.png)
-
-Ensuite dans IntelliJ, allez à `New`, `Project from version control`, cliquez et collez l'URL que vous venez de copier.
-
-![new_project.png](assets/new_project.png)
-
-### Terminal
+Forkez ce dépôt sur votre propre compte Gitlab (branche main uniquement), puis clonez-le :
 
 ```bash
-git clone <YOUR_FORK git url>
+git clone <URL_DE_VOTRE_FORK>
 cd belairs-buvette
 ```
 
-Puis ouvrez le dossier dans IntelliJ (`New` -> `Project from existing sources`).
+Ouvrez ensuite le dossier dans IntelliJ (`New` → `Project from existing sources`) ou tout autre IDE de votre choix.
 
 ### Miroir vers GitHub
 
-Pour pouvoir utiliser correctement les fonctionnalités IA avancées avec Copilot, miroir ce dépôt sur votre compte GitHub également.
-
-Créez d'abord un nouveau dépôt vide sur GitHub nommé `belairs-buvette`.
-
-Puis ajoutez la remote GitHub à votre configuration git locale :
+Pour pouvoir utiliser correctement les fonctionnalités IA avancées avec Copilot, miroir ce dépôt sur votre compte GitHub :
 
 ```bash
-git remote add github  <the URL of your new GitHub repository>
+git remote add github <the URL of your new GitHub repository>
 git branch -M main
 git push -u github main
 ```
 
-Vous êtes prêt·e !
-
-Pour compiler le projet, vous pouvez utiliser le wrapper Gradle inclus dans le projet.
+### Compiler
 
 ```bash
 ./gradlew build
 ```
 
-Pour tester le projet :
+### Lancer les tests
 
 ```bash
 ./gradlew test
@@ -77,10 +75,8 @@ Pour tester le projet :
 
 ## Étapes suivantes
 
-Maintenant que votre environnement de développement est prêt, il est temps de plonger dans le projet.
+Commencez par suivre le reste du matériel de formation dans l'[academy](https://example.com).
 
-Commencez par suivre le reste du matériel de formation fourni dans l'[academy](https://example.com).
-
-Vous pouvez aussi consulter le fichier [FEATURES_fr.md](./FEATURES_fr.md) pour avoir une idée des fonctionnalités à implémenter.
+Consultez le fichier [FEATURES_fr.md](./FEATURES_fr.md) pour la liste des user stories et des critères d'acceptation.
 
 Bon codage !
