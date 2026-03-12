@@ -15,6 +15,7 @@ description: Create an issue in the form of a markdown file with title, descript
     7. Use `refence.md` as a guide for formatting and content requirements.
     8. use `examples.md` for inspiration on how to structure the issues and scenarios.
     9. use 'templates/issue.md' as a template for the issue content and structure.
+    10. break down the request into multiple issues if it spans multiple modules, ensuring each issue is focused and manageable.
     
 # Note
 - This skill is intended to create manageable issue. Typically, it should not span more than one module. 
