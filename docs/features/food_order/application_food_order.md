@@ -1,3 +1,25 @@
+# Application - Food Order
+
+**Contexte**
+Les festivaliers peuvent commander des snacks ou des repas. L'API doit appliquer la logique de déduction de jetons selon le type d'aliment et empêcher les commandes dépassant le solde disponible.
+**Critères d'acceptation**
+Feature: Food order
+	Scenario: Order snack
+	Given a festival goer with 9 snack tokens
+	When they order a snack
+	Then the API deducts 1 snack token
+	Scenario: Order meal
+		Given a festival goer with 9 snack tokens
+		When they order a meal
+		Then the API deducts 3 snack tokens
+	Scenario: Insufficient tokens
+		Given a festival goer with 2 snack tokens
+	When they order a meal
+	Then the API rejects the order due to insufficient tokens
+
+**Notes**
+- Les repas coûtent 3 jetons, les snacks 1 jeton.
+- Les commandes doivent respecter le solde de jetons.
 # Food Order (Application)
 
 ## Context

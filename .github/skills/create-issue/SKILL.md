@@ -11,7 +11,7 @@ description: Create an issue in the form of a markdown file with title, descript
     3. Generate a concise title and structured description.
     4. Produce 1..N Gherkin scenarios covering happy path and edge cases.
     5. Create the issue in the `docs/features/{feature_name}/{module_name}_{issue_title}.md` file using the `templates/issue.md` template.
-    6. Validate the issue using `scripts/validate_issue_format.py`.
+    6. Validate the issue using `scripts/validate_issue_format.py`. use 'python3' as the command to run the script. If the validation fails, fix the issue content until it passes.
     7. Use `refence.md` as a guide for formatting and content requirements.
     8. use `examples.md` for inspiration on how to structure the issues and scenarios.
     9. use 'templates/issue.md' as a template for the issue content and structure.
