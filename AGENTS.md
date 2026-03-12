@@ -59,6 +59,14 @@ The project follows a Hexagonal Architecture (Ports and Adapters), organized int
   - Implements persistence (repositories), external service integrations, and other technical concerns.
   - Handles database interactions, external API calls, and other infrastructure-related tasks.
 
+## Development Guidelines
+
+For detailed engineering practices, refer to:
+
+- [Java Coding Guidelines](docs/agents/instructions/java-coding-guidelines.md): Best practices for Java engineers using Hexagonal Architecture.
+- [Testing Guidelines](docs/agents/instructions/testing-guidelines.md): Unit and integration testing conventions and best practices.
+- [Git Guidelines](docs/agents/instructions/git-guidelines.md): Branching, commit conventions, and trunk-based workflow.
+
 ## Repository Structure
 
 ```markdown
