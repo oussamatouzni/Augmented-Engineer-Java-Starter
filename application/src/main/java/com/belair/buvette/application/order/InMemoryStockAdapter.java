@@ -1,13 +1,13 @@
 package com.belair.buvette.application.order;
 
-import com.belair.buvette.domain.order.StockPort;
+import com.belair.buvette.domain.order.ICommandeRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
-class InMemoryStockAdapter implements StockPort {
+class InMemoryStockAdapter implements ICommandeRepository {
     private final Map<String, Integer> store = new ConcurrentHashMap<>();
 
     void set(String id, int qty) { store.put(id, qty); }

@@ -53,7 +53,7 @@ class PasserCommandeUseCaseTest {
     }
 
     // simple in-memory implementation for tests
-    static class InMemoryStockPort implements StockPort {
+    static class InMemoryStockPort implements ICommandeRepository {
         private final java.util.Map<String, Integer> map = new java.util.HashMap<>();
 
         void set(String id, int qty) { map.put(id, qty); }

@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 public class PasserCommandeUseCase {
 
-    private final StockPort stockPort;
+    private final ICommandeRepository stockPort;
 
-    public PasserCommandeUseCase(StockPort stockPort) {
+    public PasserCommandeUseCase(ICommandeRepository stockPort) {
         this.stockPort = stockPort;
     }
 
