@@ -21,33 +21,59 @@ class CommandeControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    // Use the Spring context-provided MockMvc (no standalone fake controller)
-
+    // Scenario: Commande créée avec succès
     @Test
-    void shouldCreateOrderWhenItemAvailable() throws Exception {
-        // Given: an identified festival goer and an available item "Mojito"
-        String payload = "{\"customerId\":\"user-123\", \"items\":[{\"name\":\"Mojito\", \"quantity\":1}]}";
+    void shouldCreateCommandeSuccessfully() throws Exception {
+        // Given an identified festivalier and available articles
+        String payload = "{\"festivalierId\":\"festivalier-42\", \"articles\":[{\"id\": \"mojito\", \"quantite\": 2}]}";
 
-        // When: the festival goer places an order for 1 "Mojito"
-        MvcResult result = mvc.perform(post("/api/orders")
+        // When: POST /commandes
+        MvcResult result = mvc.perform(post("/commandes")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(payload))
                 .andReturn();
 
-        // Then: the order is created and a command id is returned (expecting 201)
+        // Then: expect 201, body contains commandeId and status EN_ATTENTE
         int status = result.getResponse().getStatus();
         String body = result.getResponse().getContentAsString();
 
-        assertThat(status).as("HTTP status for POST /api/orders").isEqualTo(201);
-        assertThat(body).as("Response body should contain an order id").contains("orderId");
+        assertThat(status).as("HTTP status for POST /commandes").isEqualTo(201);
+        assertThat(body).as("Response should contain commandeId").contains("commandeId");
+        assertThat(body).as("Response should contain status EN_ATTENTE").contains("EN_ATTENTE");
 
-        // Persist response JSON for the upcoming refactor step using the test class name
+        // Persist response JSON for refactor step
         Path outDir = Paths.get("build", "test-output");
         Files.createDirectories(outDir);
         Path outFile = outDir.resolve(CommandeControllerTest.class.getSimpleName() + ".json");
         Files.writeString(outFile, body);
     }
 
-    // Inline fake removed: production controller `PasserCommandeController` is used instead.
+    // Scenario: Requête refusée si le festivalier n'est pas authentifié
+    @Test
+    void shouldReturn401WhenNotAuthenticated() throws Exception {
+        // Given no authenticated festivalier
+        MvcResult result = mvc.perform(post("/commandes")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{}"))
+                .andReturn();
+
+        int status = result.getResponse().getStatus();
+        assertThat(status).as("Unauthenticated requests should be rejected").isEqualTo(401);
+    }
+
+    // Scenario: Requête refusée si le corps de la requête est invalide
+    @Test
+    void shouldReturn400WhenInvalidBody() throws Exception {
+        // Given an identified festivalier but missing articles
+        String payload = "{\"festivalierId\":\"festivalier-42\"}";
+
+        MvcResult result = mvc.perform(post("/commandes")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(payload))
+                .andReturn();
+
+        int status = result.getResponse().getStatus();
+        assertThat(status).as("Invalid request body should return 400").isEqualTo(400);
+    }
 
 }
