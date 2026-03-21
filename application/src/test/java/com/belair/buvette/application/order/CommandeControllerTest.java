@@ -21,10 +21,14 @@ class CommandeControllerTest {
     @Autowired
     private MockMvc mvc;
 
+    @Autowired
+    private PasserCommandeApplicationService service;
+
     // Scenario: Commande créée avec succès
     @Test
     void shouldCreateCommandeSuccessfully() throws Exception {
         // Given an identified festivalier and available articles
+        service.setStock("mojito", 10);
         String payload = "{\"festivalierId\":\"festivalier-42\", \"articles\":[{\"id\": \"mojito\", \"quantite\": 2}]}";
 
         // When: POST /commandes
