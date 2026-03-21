@@ -11,6 +11,11 @@ plugins {
 dependencies {
     implementation(project(":domain"))
     implementation(project(":infrastructure"))
+    // Spring Web is required to enable MVC test infrastructure in integration tests
+    implementation("org.springframework.boot:spring-boot-starter-web:3.2.12")
+
+    // Testing utilities (MockMvc, SpringBootTest, JUnit, AssertJ)
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.2.12")
 }
 
 application {
