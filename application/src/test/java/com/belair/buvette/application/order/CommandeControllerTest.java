@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import java.nio.file.Files;
@@ -17,7 +16,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 @SpringBootTest(classes = com.belair.buvette.application.TestConfig.class)
 @AutoConfigureMockMvc
-class PasserCommandeControllerTest {
+class CommandeControllerTest {
 
     @Autowired
     private MockMvc mvc;
@@ -45,7 +44,7 @@ class PasserCommandeControllerTest {
         // Persist response JSON for the upcoming refactor step using the test class name
         Path outDir = Paths.get("build", "test-output");
         Files.createDirectories(outDir);
-        Path outFile = outDir.resolve(PasserCommandeControllerTest.class.getSimpleName() + ".json");
+        Path outFile = outDir.resolve(CommandeControllerTest.class.getSimpleName() + ".json");
         Files.writeString(outFile, body);
     }
 

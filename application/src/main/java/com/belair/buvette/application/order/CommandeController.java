@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-class PasserCommandeController {
+class CommandeController {
 
     @PostMapping("/api/orders")
     public ResponseEntity<String> createOrder(@RequestBody String body) {
