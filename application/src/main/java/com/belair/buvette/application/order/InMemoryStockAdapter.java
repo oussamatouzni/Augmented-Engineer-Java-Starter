@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 class InMemoryStockAdapter implements ICommandeRepository {
     private final Map<String, Integer> store = new ConcurrentHashMap<>();
 
-    void set(String id, int qty) { store.put(id, qty); }
+    public void set(String id, int qty) { store.put(id, qty); }
 
     @Override
     public boolean exists(String articleId) {

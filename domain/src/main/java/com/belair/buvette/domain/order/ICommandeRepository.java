@@ -4,4 +4,5 @@ public interface ICommandeRepository {
     boolean exists(String articleId);
     int availableQuantity(String articleId);
     void decrement(String articleId, int quantity);
+    void set(String id, int qty);
 }

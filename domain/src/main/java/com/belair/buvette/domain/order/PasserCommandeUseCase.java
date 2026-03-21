@@ -36,9 +36,9 @@ public class PasserCommandeUseCase {
             stockPort.decrement(line.articleId(), line.quantity());
         }
 
-        List<CommandeLine> lines = requestedLines.stream()
-                .map(l -> new CommandeLine(l.articleId(), l.quantity()))
-                .collect(Collectors.toList());
+        List<com.belair.buvette.domain.order.CommandeLine> lines = requestedLines.stream()
+            .map(l -> new com.belair.buvette.domain.order.CommandeLine(l.articleId(), l.quantity()))
+            .collect(Collectors.toList());
 
         Commande commande = new Commande(UUID.randomUUID().toString(), lines, CommandeStatus.EN_ATTENTE);
         return commande;

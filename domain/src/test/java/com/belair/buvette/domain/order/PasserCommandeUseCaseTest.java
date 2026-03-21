@@ -56,7 +56,7 @@ class PasserCommandeUseCaseTest {
     static class InMemoryStockPort implements ICommandeRepository {
         private final java.util.Map<String, Integer> map = new java.util.HashMap<>();
 
-        void set(String id, int qty) { map.put(id, qty); }
+        public void set(String id, int qty) { map.put(id, qty); }
 
         @Override
         public boolean exists(String articleId) {

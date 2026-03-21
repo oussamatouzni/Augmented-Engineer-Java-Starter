@@ -10,8 +10,12 @@ plugins {
 
 dependencies {
     implementation(project(":domain"))
-}
 
-dependencies {
-    implementation("com.h2database:h2:2.2.220")
+    // Spring Data JPA for repository implementations
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.2.6")
+
+    // H2 in-memory database for tests and local runs
+    runtimeOnly("com.h2database:h2:2.2.220")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.2.6")
 }

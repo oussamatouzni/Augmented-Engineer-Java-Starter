@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan("com.belair.buvette.application.order")
+@ComponentScan({"com.belair.buvette.application.order", "com.belair.buvette.infrastructure.order"})
 public class TestConfig {
     // Reusable minimal auto-configuration for tests that need a Spring context.
 }
