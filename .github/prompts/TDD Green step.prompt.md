@@ -3,8 +3,8 @@ agent: agent
 name: TDD Green step
 description: This prompt is used to implement the minimal code required to make a failing test pass in a TDD workflow, following the "TDD as if you meant it" approach (implementation inside the test only)
 argument-hint: Make the following test pass using minimal implementation inside the test class only: {test_file_path}#{test_method_name}
-  tools: ['execute/getTerminalOutput', 'execute/runInTerminal', 'read/problems', 'read/readFile', 'read/terminalSelection', 'read/terminalLastCommand', 'edit/createDirectory', 'edit/createFile', 'edit/editFiles', 'search', 'context7/*', 'todo']
-  model: GPT-5 mini (copilot)
+tools: ['execute/getTerminalOutput', 'execute/runInTerminal', 'read/problems', 'read/readFile', 'read/terminalSelection', 'read/terminalLastCommand', 'edit/createDirectory', 'edit/createFile', 'edit/editFiles', 'search', 'context7/*', 'todo']
+model: GPT-5 mini (copilot)
 ---
 
 # Green TDD step prompt
@@ -21,6 +21,8 @@ argument-hint: Make the following test pass using minimal implementation inside 
     * The implementation MUST be done **inside the test class itself**.
     * Do NOT create or modify any production code.
 4. Run the test to confirm it now passes.
+
+    * Additionally: the Green step SHOULD persist the produced JSON response to a file so the following refactor step can consume it. The file MUST be written under `build/test-output` and named after the test class (simple class name) with a `.json` extension. Example: `build/test-output/PasserCommandeControllerTest.json`.
 
 ---
 
