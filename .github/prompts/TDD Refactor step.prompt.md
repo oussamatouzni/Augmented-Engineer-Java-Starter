@@ -1,6 +1,6 @@
 ---
 agent: agent
-name: TDD Red step
+name: TDD Refactor step
 description: This prompt is used to implement one test scenario that fails in a TDD workflow for an AI agent
 argument-hint: Implement the following test scenario in a TDD workflow for an AI agent: {scenario_description}
 tools: ['execute/getTerminalOutput', 'execute/runInTerminal', 'read/problems', 'read/readFile', 'read/terminalSelection', 'read/terminalLastCommand', 'edit/createDirectory', 'edit/createFile', 'edit/editFiles', 'search', 'context7/*', 'todo']
