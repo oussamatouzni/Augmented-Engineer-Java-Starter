@@ -18,10 +18,11 @@ import java.util.List;
 class CommandeController {
 
     private final PasserCommandeApplicationService service;
-    private final ObjectMapper mapper = new ObjectMapper();
+    private final com.fasterxml.jackson.databind.ObjectMapper mapper;
 
-    CommandeController(PasserCommandeApplicationService service) {
+    CommandeController(PasserCommandeApplicationService service, com.fasterxml.jackson.databind.ObjectMapper mapper) {
         this.service = service;
+        this.mapper = mapper;
     }
 
     @PostMapping(value = "/commandes", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -51,9 +52,14 @@ class CommandeController {
 
         Commande commande = service.createCommande(festivalier.asText(), lines);
 
-        String response = mapper.writeValueAsString(
-                java.util.Map.of("commandeId", commande.getId(), "status", commande.getStatus().toString())
-        );
+        Integer remaining = null;
+        if (commande.getLines() != null && commande.getLines().size() == 1) {
+            String articleId = commande.getLines().get(0).getArticleId();
+            remaining = service.availableQuantity(articleId);
+        }
+
+        CommandeResponse dto = new CommandeResponse(commande.getId(), commande.getStatus().toString(), remaining);
+        String response = mapper.writeValueAsString(dto);
         return ResponseEntity.status(201).contentType(MediaType.APPLICATION_JSON).body(response);
     }
 

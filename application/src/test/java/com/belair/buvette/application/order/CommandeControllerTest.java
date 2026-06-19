@@ -52,6 +52,27 @@ class CommandeControllerTest {
         Files.writeString(outFile, body);
     }
 
+    // Red test: the API should return remaining stock in the response (not implemented yet)
+    @Test
+    void shouldReturnRemainingStockInResponseForBierePaleAle() throws Exception {
+        // Given
+        service.setStock("Bière Pale Ale", 10);
+        String payload = "{\"festivalierId\":\"festivalier-99\", \"articles\":[{\"id\": \"Bière Pale Ale\", \"quantite\": 2}]}";
+
+        // When
+        MvcResult result = mvc.perform(post("/commandes")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(payload))
+                .andReturn();
+
+        // Then: expect 201 and remainingStock = 8 in the response body (feature not implemented)
+        int status = result.getResponse().getStatus();
+        String body = result.getResponse().getContentAsString();
+
+        assertThat(status).as("HTTP status for POST /commandes").isEqualTo(201);
+        assertThat(body).as("Response should contain remainingStock").contains("\"remainingStock\":8");
+    }
+
     // Scenario: Requête refusée si le festivalier n'est pas authentifié
     @Test
     void shouldReturn401WhenNotAuthenticated() throws Exception {

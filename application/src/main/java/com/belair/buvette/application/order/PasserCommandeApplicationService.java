@@ -25,6 +25,11 @@ class PasserCommandeApplicationService {
         return c;
     }
 
+    // expose remaining stock for an article (used by controllers/tests)
+    public int availableQuantity(String articleId) {
+        return stockAdapter.availableQuantity(articleId);
+    }
+
     // helper for tests / bootstrapping
     void setStock(String id, int qty) { stockAdapter.set(id, qty); }
 }
