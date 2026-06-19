@@ -73,6 +73,10 @@ git push -u github main
 ./gradlew test
 ```
 
+## Recent Changes
+
+- See the consolidated summary of recent changes and new feature documentation: [docs/RECENT_CHANGES.md](docs/RECENT_CHANGES.md)
+
 ## Next Steps
 
 Start by following the formation material in the [academy](https://academy.exalt-company.com/paths/699c49f3a1dffef24c46c739/home).
