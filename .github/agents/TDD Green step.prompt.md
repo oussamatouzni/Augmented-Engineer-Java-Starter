@@ -22,8 +22,6 @@ model: GPT-5 mini (copilot)
     * Do NOT create or modify any production code.
 4. Run the test to confirm it now passes.
 
-    * Additionally: the Green step SHOULD persist the produced JSON response to a file so the following refactor step can consume it. The file MUST be written under `build/test-output` and named after the test class (simple class name) with a `.json` extension. Example: `build/test-output/PasserCommandeControllerTest.json`.
-
 ---
 
 ## Requirements
@@ -33,15 +31,6 @@ model: GPT-5 mini (copilot)
 * You **MUST NOT** modify the test logic, assertions, or method name.
 * You **MUST NOT** modify other tests in the file.
 * The test MUST pass when executed.
-
----
-
-## Module Resolution Rules
-
-* If the test references domain entities → use `domain`
-* If it references use cases / handlers → use `application`
-* If it references external systems (DB, API, filesystem) → use `infrastructure`
-* If ambiguous → default to `application`
 
 ---
 
@@ -111,6 +100,10 @@ model: GPT-5 mini (copilot)
 * DO NOT skip test execution
 
 ---
+
+## Handoff to Refactor step
+- Once the test passes, hand off to the **TDD Refactor step** agent.
+- Provide: the test file path, the test method name, and the list of inline/fake implementations you added (class names, method names).
 
 ## Examples
 

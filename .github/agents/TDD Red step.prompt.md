@@ -17,9 +17,7 @@ model: GPT-5 mini (copilot)
    - If it exists, append the new test case to the existing file.
    - If it does not exist, create a new test file in the appropriate directory structure based on the module (domain, application, infrastructure). 
 3. Write the test case so it accurately reflects the scenario and is expected to fail initially. You MUST Follow the testing guidelines for the module you are currently working on : 
-    - for the domain module, follow the guidelines in `docs/agents/instructions/domain-testing.instructions.md`
-    - for the application module, follow the guidelines in `docs/agents/instructions/application-testing.instructions.md`
-    - for the infrastructure module, follow the guidelines in `docs/agents/instructions/infrastructure-testing.instructions.md`
+    - follow the guidelines in `docs/agents/instructions/testing-guidelines.md` for all modules
 4. Run the test to confirm it fails.
 
 ## Requirements
@@ -66,6 +64,10 @@ model: GPT-5 mini (copilot)
 - DO NOT modify existing business logic
 - DO NOT skip test execution
 - DO NOT write passing tests
+## Handoff to Green step
+- Once the test is confirmed failing, hand off to the **TDD Green step** agent.
+- Provide: the test file path, the test method name, and the failure output.
+
 ## Examples
 
 ### Domain test example : file does not yet exist

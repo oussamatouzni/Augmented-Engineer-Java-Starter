@@ -1,8 +1,8 @@
 ---
 agent: agent
 name: TDD Refactor step
-description: This prompt is used to implement one test scenario that fails in a TDD workflow for an AI agent
-argument-hint: Implement the following test scenario in a TDD workflow for an AI agent: {scenario_description}
+description: This prompt extracts inline/fake implementations from the test class into proper production code, preserving all behavior established in the Green step
+argument-hint: Refactor the following test by extracting inline implementations into production code: {test_file_path}#{test_method_name}
 tools: ['execute/getTerminalOutput', 'execute/runInTerminal', 'read/problems', 'read/readFile', 'read/terminalSelection', 'read/terminalLastCommand', 'edit/createDirectory', 'edit/createFile', 'edit/editFiles', 'search', 'context7/*', 'todo']
 model: GPT-5 mini (copilot)
 ---
@@ -15,8 +15,7 @@ model: GPT-5 mini (copilot)
 
     * The input will contain a test file path and a test method name.
     * Retrieve the test file content and locate the specified test method.
-    * Read the corresponding JSON output file from `build/test-output/<TestClassName>.json` produced by the Green step.
-    * if the JSON file is missing, run the Green step to generate it.
+    * Review the inline/fake implementations added by the Green step (inner classes, helper methods, hardcoded values).
 2. Identify all inline/fake implementations inside the test class (inner classes, helper methods, hardcoded values).
 3. Extract each piece of inline implementation into the appropriate production module.
 
@@ -33,7 +32,7 @@ model: GPT-5 mini (copilot)
 * You **MUST NOT** add new behavior or features during refactoring.
 * You **MUST** ensure all tests still pass after refactoring.
 * You **MUST** follow the architecture and naming conventions of the existing codebase.
-* The JSON output file from `build/test-output` MUST be used as the reference contract for the expected production behavior.
+* The test file itself is the reference contract — the inline implementations from the Green step define the expected production behavior.
 
 ---
 
@@ -104,7 +103,6 @@ model: GPT-5 mini (copilot)
 Input:
 Test File: `ContactExportUseCaseTest.java`
 Test Method: `shouldProduceExportDtoWhenContactsExist`
-JSON Contract: `build/test-output/ContactExportUseCaseTest.json`
 
 Expected Behavior:
 
