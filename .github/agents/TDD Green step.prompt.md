@@ -1,5 +1,4 @@
 ---
-agent: agent
 name: TDD Green step
 description: This prompt is used to implement the minimal code required to make a failing test pass in a TDD workflow, following the "TDD as if you meant it" approach (implementation inside the test only)
 argument-hint: Make the following test pass using minimal implementation inside the test class only: {test_file_path}#{test_method_name}

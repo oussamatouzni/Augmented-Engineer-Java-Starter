@@ -1,5 +1,4 @@
 ---
-agent: agent
 name: TDD Red step
 description: This prompt is used to implement one test scenario that fails in a TDD workflow for an AI agent
 argument-hint: Implement the following test scenario in a TDD workflow for an AI agent: {scenario_description}

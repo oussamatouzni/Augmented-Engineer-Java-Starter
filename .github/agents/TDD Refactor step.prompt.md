@@ -1,5 +1,4 @@
 ---
-agent: agent
 name: TDD Refactor step
 description: This prompt extracts inline/fake implementations from the test class into proper production code, preserving all behavior established in the Green step
 argument-hint: Refactor the following test by extracting inline implementations into production code: {test_file_path}#{test_method_name}
